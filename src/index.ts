@@ -1,12 +1,32 @@
-const canvas = document.createElement('canvas');
-const c = canvas.getContext('2d');
-canvas.height = innerHeight
-canvas.width = innerWidth
+import {canvas}                   from "./canvas";
+import Game_field                 from "./game_field";
 
-canvas.style.position = "fixed";
-canvas.style.top = "0px";
-canvas.style.left = "0px";
-canvas.style.background = "lightblue";
+let length = 50;
+let game_field: Array<Game_field> = [];
 
-document.body.appendChild(canvas);
-console.log("HELP ME PLS");
+const init = () => {
+    for (let x = 0; x < 10; x++) {
+        for (let y = 0; y < 10; y++) {
+            game_field.push(new Game_field(x * length, y * length, length, '#BBADAA'));
+        }
+    }
+};
+
+export const change_cell_color = (index: number) => {
+    game_field[index].color = 'green';
+};
+
+const animate = () => {
+    const {c} = canvas;
+
+    c.clearRect(0, 0, canvas.c.canvas.width, canvas.c.canvas.height);
+
+    for (const cell of game_field) {
+        cell.display();
+    }
+
+    requestAnimationFrame(animate);
+};
+
+init();
+animate();
