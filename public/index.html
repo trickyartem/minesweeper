@@ -10,12 +10,38 @@
         body {
             min-height: 1000px;
         }
+
+        #canvas {
+            height: 500px;
+        }
+
+        #input {
+            border: 2px solid chocolate;
+            width: 200px;
+            height: 50px;
+        }
+
+        button {
+            padding: 20px 40px;
+            margin: 5px 5px;
+            border: none;
+            background-color: cornflowerblue;
+        }
     </style>
     <title>Minesweeper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div id="canvas">
+</div>
+<div id="container">
+    <label>
+        Change amount of bombs:
+        <div contenteditable="true" id="input"></div>
+    </label>
+    <button id="change-button">Change</button>
+    <button id="reset-button">Reset</button>
+    To change amount of bombs on the field you need to press change and reset game
 </div>
 </body>
 </html>

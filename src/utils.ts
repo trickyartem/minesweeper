@@ -1,4 +1,3 @@
-
 export interface position {
     x: null | number;
     y: null | number;
